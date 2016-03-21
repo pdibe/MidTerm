@@ -36,7 +36,16 @@ public class Staff_Test {
 		staff.add(StaffMember1);
 		staff.add(StaffMember2);
 	}
+	@Test
+	public void CorrectNumberTest() throws PersonException{
+		WrongNumber.setPhone("(302)-312-9475");
+	}
 	
+	@Test
+	(expected = PersonException.class)
+	public void WrongNumberTest() throws PersonException{
+		WrongNumber.setPhone("(312)-302-5749");
+	}
 	@Test
 	public void SalaryTest() {
 		double AverageSalary = ((90000 + 20000 +120000 + 68000 + 47000)/5);
@@ -57,15 +66,6 @@ public class Staff_Test {
 		InvalidDOB.setDOB(newDate);
 	}
 	
-	@Test
-	public void CorrectNumberTest() throws PersonException{
-		WrongNumber.setPhone("(302)-312-9475");
-	}
 	
-	@Test
-	(expected = PersonException.class)
-	public void WrongNumberTest() throws PersonException{
-		WrongNumber.setPhone("(312)-302-5749");
-	}
 
 }
